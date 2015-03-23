@@ -3,7 +3,7 @@
 """Planar angle mathematics library for Python."""
 
 __author__ = "Anthony Zhang (Uberi)"
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __license__ = "BSD"
 
 import math, numbers
