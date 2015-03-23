@@ -17,7 +17,7 @@ anglr
     :target: https://pypi.python.org/pypi/anglr/
     :alt: License
 
-Library for working with angles in Python.
+Planar angle mathematics library for Python.
 
 Links:
 

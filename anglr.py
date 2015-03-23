@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Library for working with angles in Python."""
+"""Planar angle mathematics library for Python."""
 
 __author__ = "Anthony Zhang (Uberi)"
 __version__ = "1.0.0"
