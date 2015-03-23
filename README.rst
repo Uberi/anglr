@@ -1,5 +1,5 @@
-Google Speech Recognition
-=========================
+anglr
+=====
 
 .. image:: https://pypip.in/download/anglr/badge.svg
     :target: https://pypi.python.org/pypi/anglr/
