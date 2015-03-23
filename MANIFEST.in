@@ -1,4 +1,4 @@
 include anglr.py
-recursive-exclude speech_recognition *.pyc
+global-exclude *.pyc
 include README.rst
 include LICENSE.txt

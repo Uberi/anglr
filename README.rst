@@ -120,6 +120,6 @@ License
 
 Copyright 2014-2015 `Anthony Zhang (Uberi) <https://uberi.github.io>`__.
 
-The source code is available online at `GitHub <https://github.com/Uberi/speech_recognition>`__.
+The source code is available online at `GitHub <https://github.com/Uberi/anglr>`__.
 
 This program is made available under the 3-clause BSD license. See ``LICENSE.txt`` for more information.
