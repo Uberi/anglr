@@ -3,7 +3,7 @@
 """Planar angle mathematics library for Python."""
 
 __author__ = "Anthony Zhang (Uberi)"
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __license__ = "BSD"
 
 import math, numbers
@@ -98,13 +98,22 @@ class Angle:
     # circle functions
     def normalized(self, lower = 0, upper = None):
         if upper is None: upper = lower + TAU
-        if lower > upper: raise ValueError("Invalid bounds: from \"{}\" to \"{}\"".format(lower, upper))
+        if lower > upper: lower, upper = upper, lower # swap bounds if upper bound is greater than lower bound
         return Angle(lower + (self.radians % TAU) * (upper - lower))
     def angle_between_clockwise(self, angle):
-        return Angle((Angle(angle).radians % TAU - self.radians % TAU) % TAU)
+        return Angle((Angle(angle).radians - self.radians) % TAU)
     def angle_between(self, angle):
         angle = Angle(angle)
         return min(self.angle_between_clockwise(angle), angle.angle_between_clockwise(self))
+    def angle_within(self, lower, upper, strictly_within = False):
+        if lower > upper: lower, upper = upper, lower # swap bounds if upper bound is greater than lower bound
+        lower, upper = Angle(lower), Angle(upper)
+        
+        # transform all angles into a coordinate space where the lower angle is the positive X-axis to make comparison easier
+        value = (self.radians - lower.radians) % TAU
+        upper_bound = (upper.radians - lower.radians) % TAU
+        if strictly_within: return 0 < value < upper_bound
+        return 0 <= value <= upper_bound
 
 if __name__ == "__main__":
     from math import pi
@@ -152,5 +161,7 @@ if __name__ == "__main__":
     assert str(Angle(-870.3, "gradians").normalized(-pi, 0)) == "13.128450201606015 rad"
     assert str(Angle(1, "degrees").angle_between_clockwise(Angle(0, "degrees"))) == "6.265732014659643 rad"
     assert str(Angle(1, "degrees").angle_between(Angle(0, "degrees"))) == "0.017453292519943295 rad"
+    assert str(Angle(0, "degrees").angle_within(Angle(-45, "degrees"), Angle(45, "degrees"))) == "True"
+    assert str(Angle(-1, "degrees").angle_within(Angle(-1, "degrees"), Angle(1, "degrees"), strictly_within=True)) == "False"
     
     print("All tests passed!")

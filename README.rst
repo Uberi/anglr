@@ -19,12 +19,44 @@ anglr
 
 Planar angle mathematics library for Python.
 
+This library contains many different functions for converting between units, comparing angles, and doing angle arithmetic.
+
 Links:
 
 -  `PyPI <https://pypi.python.org/pypi/anglr/>`__
 -  `GitHub <https://github.com/Uberi/anglr>`__
 
 Quickstart: ``pip3 install anglr``.
+
+Rationale
+---------
+
+Consider the following trivial angle comparison code:
+
+.. code:: python
+
+    import math
+    heading = get_compass_value() # angle in radians normalized to $[0, 2*pi)$
+    if target - math.pi / 4 <= heading <= target + math.pi / 4:
+        print("Facing the target")
+    else:
+        print("Not facing the target")
+
+Angle code is everywhere. The above is totally, utterly **wrong** (consider what happens when ``target`` is 0), yet this could easily be overlooked while writing and during code review.
+
+With anglr, there is a better way:
+
+.. code:: python
+
+    import math
+    from anglr import Angle
+    heading = Angle(get_compass_value())
+    if heading.angle_between(target) <= math.pi / 4:
+        print("Facing the target")
+    else:
+        print("Not facing the target")
+
+Much better - this will now correctly take modular arithmetic into account when comparing angles.
 
 Examples
 --------
@@ -89,6 +121,8 @@ Angle arithmetic:
     print(Angle(-870.3, "gradians").normalized(-pi, 0))
     print(Angle(1, "degrees").angle_between_clockwise(Angle(0, "degrees")))
     print(Angle(1, "degrees").angle_between(Angle(0, "degrees")))
+    print(Angle(0, "degrees").angle_within(Angle(-45, "degrees"), Angle(45, "degrees")))
+    print(Angle(-1, "degrees").angle_within(Angle(-1, "degrees"), Angle(1, "degrees"), strictly_within=True))
 
 To run all of the above as tests, simply execute the module using ``python3 -m anglr``.
 
