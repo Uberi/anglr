@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
-import os
 from setuptools import setup, find_packages
 
 import sys
 if sys.version_info < (3, 2):
-    print("THIS MODULE REQUIRES PYTHON 3.3 OR LATER. YOU ARE CURRENTLY USING PYTHON " + sys.version)
+    print("THIS MODULE REQUIRES PYTHON 3.2 OR LATER. YOU ARE CURRENTLY USING PYTHON " + sys.version)
     sys.exit(1)
 
 import anglr

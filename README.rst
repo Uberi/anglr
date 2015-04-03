@@ -138,7 +138,7 @@ In the folder, run ``python3 setup.py install``.
 Requirements
 ------------
 
-This library requires Python 3.3 or higher to run.
+This library requires Python 3.2 or higher to run.
 
 Authors
 -------
