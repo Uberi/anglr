@@ -1,19 +1,23 @@
 anglr
 =====
 
-.. image:: https://pypip.in/download/anglr/badge.svg
+.. image:: https://img.shields.io/pypi/dm/anglr.svg
     :target: https://pypi.python.org/pypi/anglr/
     :alt: Downloads
 
-.. image:: https://pypip.in/version/anglr/badge.svg
+.. image:: https://img.shields.io/pypi/v/anglr.svg
     :target: https://pypi.python.org/pypi/anglr/
     :alt: Latest Version
 
-.. image:: https://pypip.in/status/anglr/badge.svg
+.. image:: https://img.shields.io/pypi/status/anglr.svg
     :target: https://pypi.python.org/pypi/anglr/
     :alt: Development Status
 
-.. image:: https://pypip.in/license/anglr/badge.svg
+.. image:: https://img.shields.io/pypi/pyversions/anglr.svg
+    :target: https://pypi.python.org/pypi/anglr/
+    :alt: Supported Python Versions
+
+.. image:: https://img.shields.io/pypi/l/anglr.svg
     :target: https://pypi.python.org/pypi/anglr/
     :alt: License
 
