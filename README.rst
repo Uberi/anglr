@@ -127,8 +127,10 @@ Angle arithmetic:
     print(Angle(1, "degrees").angle_between(Angle(0, "degrees")))
     print(Angle(0, "degrees").angle_within(Angle(-45, "degrees"), Angle(45, "degrees")))
     print(Angle(-1, "degrees").angle_within(Angle(-1, "degrees"), Angle(1, "degrees"), strictly_within=True))
+    print(Angle(-1, "degrees").angle_to(Angle(180, "degrees")))
+    print(Angle(0, "degrees").angle_to(Angle(180, "degrees")))
 
-To run all of the above as tests, simply execute the module using ``python3 -m anglr``.
+To run all of the above as tests, simply run ``python3 tests.py`` in the project directory.
 
 Installing
 ----------
